@@ -1,0 +1,4 @@
+http://stackoverflow.com/questions/5690269/disabling-chrome-cache-for-website-development
+
+ctrl+shift+i
+disable cache
