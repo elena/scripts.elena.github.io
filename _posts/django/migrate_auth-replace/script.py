@@ -11,7 +11,7 @@ Replace variable "MIGRATIONS_LOCATION".
 
 @@TD: detect by being in directory called 'migrations' rather than prefix of "0",
 will perform marginally better.
-@@TD: check all variable names.
+@@TD: fix temporary variable names.
 @@TD: better detection of duplicate settings imports
 """
 
@@ -19,7 +19,7 @@ import copy
 import os
 import re
 
-DEBUG = False
+DEBUG = True
 
 MIGRATIONS_LOCATION = "/home/elena/websites/turnerengineering.com.au/lib/python2.7/site-packages/thecut/"
 
@@ -103,11 +103,11 @@ for root, dir, files in os.walk(MIGRATIONS_LOCATION):
                 else:
                     start = contents.find(rep[0])
                     if start != -1:
-                        print("Replacing: ")
-                        print(contents[start:start+len(rep[0])])
+                        if DEBUG: print("Replacing: ")
+                        if DEBUG: print(contents[start:start+len(rep[0])])
                         contents_replace = contents.replace(rep[0], rep[1])
-                        print("With: ")
-                        print(contents_replace[start:start+len(rep[1])+1])
+                        if DEBUG: print("With: ")
+                        if DEBUG: print(contents_replace[start:start+len(rep[1])+1])
                         file_write = open(root+'/'+file, 'w')
                         file_write.write(contents_replace)
                         file_write.flush()
