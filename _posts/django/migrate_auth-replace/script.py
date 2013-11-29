@@ -99,8 +99,8 @@ for root, dir, files in os.walk(MIGRATIONS_LOCATION):
                         file_write.flush()
                         file_write.close()
                     else:
-                        if DEBUG: print('pass')
-                else:
+                        if DEBUG: print('good')
+                if rep[2] == 'str':
                     start = contents.find(rep[0])
                     if start != -1:
                         if DEBUG: print("Replacing: ")
