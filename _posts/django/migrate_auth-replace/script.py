@@ -11,7 +11,7 @@ Replace variable "MIGRATIONS_LOCATION".
 
 @@TD: detect by being in directory called 'migrations' rather than prefix of "0",
 will perform marginally better.
-@@TD: fix temporary variable names.
+@@TD: check all variable names are sane.
 @@TD: better detection of duplicate settings imports
 """
 
@@ -21,7 +21,7 @@ import re
 
 DEBUG = True
 
-MIGRATIONS_LOCATION = "/home/elena/websites/turnerengineering.com.au/lib/python2.7/site-packages/thecut/"
+MIGRATIONS_LOCATION = "/home/me/websites/django-project/"
 
 frozen_match = """        'auth\.user': \{
             'Meta': \{'object_name': 'User'\},
@@ -113,7 +113,7 @@ for root, dir, files in os.walk(MIGRATIONS_LOCATION):
                         file_write.flush()
                         file_write.close()
                     else:
-                        if DEBUG: print('pass')
+                        if DEBUG: print('good')
 
 
 print('Migrations updated.')
